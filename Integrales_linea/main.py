@@ -1,5 +1,5 @@
 import sympy as sp
-from Motor import (
+from Integrales_linea import (
     parse_sympy_expr, parse_complex_math,
     CircleContour, PolygonContour,
     integrate_by_residues, format_report
