@@ -10,3 +10,5 @@ from .integrals.engine import integrate_by_residues  # y luego integrate() si lo
 # from .fourier.engine import fourier_series, ...
 
 from .core.parsing import parse_expr_math, parse_number_math
+
+from .integrals.param_integrator import integrate_parametric, param_segment, param_arc

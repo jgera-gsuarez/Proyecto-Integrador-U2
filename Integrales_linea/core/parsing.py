@@ -25,6 +25,12 @@ def parse_expr_math(expr_str: str, local_dict=None):
 
     # Variables típicas
     local_dict = dict(local_dict)
+
+    #Complejos
+    local_dict.setdefault("i", sp.I)
+    local_dict.setdefault("I", sp.I)
+    local_dict.setdefault("j", sp.I)
+
     local_dict.setdefault("pi", sp.pi)
     local_dict.setdefault("E", sp.E)
     local_dict.setdefault("e", sp.E)  # opcional
