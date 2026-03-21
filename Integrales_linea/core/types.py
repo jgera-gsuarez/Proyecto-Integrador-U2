@@ -11,7 +11,7 @@ class FourierResult:
     a: sp.Expr
     b: sp.Expr
     T: sp.Expr
-    N: int
+    n_harmonics: int
     method_used: str                 # "symbolic" o "numeric"
 
     # Coeficientes
@@ -28,8 +28,6 @@ class FourierResult:
 
     # Reporte estructurado (para formatear)
     report: Dict[str, Any]
-
-import sympy as sp
 
 def format_kv_block(title: str, kv: dict) -> str:
     lines = [f"=== {title} ==="]

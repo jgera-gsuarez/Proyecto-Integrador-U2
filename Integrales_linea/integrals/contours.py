@@ -33,6 +33,7 @@ class CircleContour:
         c = self.center()
         return (c.real - self.radius, c.real + self.radius, c.imag - self.radius, c.imag + self.radius)
 
+
 @dataclass(frozen=True)
 class PolygonContour:
     vertices_sym: List[object]  # list of SymPy complex

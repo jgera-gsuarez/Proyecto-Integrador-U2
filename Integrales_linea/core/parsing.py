@@ -44,6 +44,10 @@ def parse_expr_math(expr_str: str, local_dict=None):
     local_dict.setdefault("abs", sp.Abs)
     local_dict.setdefault("sqrt", sp.sqrt)
 
+    #Para Fourier
+    local_dict.setdefault("x", sp.Symbol('x', real=True))
+    local_dict.setdefault("n", sp.Symbol('n', integer=True, positive=True))
+
     return parse_expr(expr_str, transformations=_TRANSFORMS, local_dict=local_dict)
 
 def parse_number_math(num_str: str):
