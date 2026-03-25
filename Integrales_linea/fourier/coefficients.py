@@ -35,9 +35,9 @@ def compute_coefficients(
     # Intentamos la integración simbólica general para obtener una fórmula en términos de 'n'
     try:
         # an = (2/T) * integral(f(x) * cos(n * w0 * x), a, b)
-        term_an = (2 / _T) * sp.integrate(expr * sp.cos(n * w0 * (x-a)), (x, a, b))
+        term_an = (2 / _T) * sp.integrate(expr * sp.cos(n * w0 * x), (x, a, b))
         # bn = (2/T) * integral(f(x) * sin(n * w0 * x), a, b)
-        term_bn = (2 / _T) * sp.integrate(expr * sp.sin(n * w0 * (x-a)), (x, a, b))
+        term_bn = (2 / _T) * sp.integrate(expr * sp.sin(n * w0 * x), (x, a, b))
 
         for i in range(1, n_harmonics+1):
             # Evaluamos la n en la fórmula general

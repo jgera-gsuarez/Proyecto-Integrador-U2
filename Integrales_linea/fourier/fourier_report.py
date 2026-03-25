@@ -1,5 +1,5 @@
 import sympy as sp
-from ..core.types import FourierResult
+from .types import FourierResult
 
 def format_fourier_report(fr: FourierResult) -> str:
     if fr.status != "ok":

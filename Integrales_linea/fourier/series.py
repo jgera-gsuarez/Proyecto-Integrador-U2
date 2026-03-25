@@ -16,8 +16,8 @@ def build_series_callable(
     Devuelve S_N(x) como función numérica.
     Convierte coeficientes (posiblemente simbólicos) a float usando N().
     """
-    a_float = float(sp.N(a))
-    _T_float = float(sp.N(_T))
+    #a_float = float(sp.N(a))
+    #_T_float = float(sp.N(_T))
 
     a0f = float(sp.N(a0))
     anf = [float(sp.N(v)) for v in an]
@@ -27,12 +27,11 @@ def build_series_callable(
     def S(x: float) -> float:
         s = a0f
         for n in range(1, _N + 1):
-            w = 2 * math.pi * n * (x - a_float) / _T_float
+            w = 2 * math.pi * n * x / _T
             s += anf[n - 1] * math.cos(w) + bnf[n - 1] * math.sin(w)
         return s
 
     return S
-
 
 def build_series_expr(
     x: sp.Symbol,
