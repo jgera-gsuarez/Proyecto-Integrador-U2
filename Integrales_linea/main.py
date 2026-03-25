@@ -1,4 +1,4 @@
-#from fileinput import filename
+import os
 import sympy as sp
 from Integrales_linea import(
     format_report,
@@ -10,6 +10,7 @@ from Integrales_linea import(
     plot_complex_contour
 )
 from Integrales_linea.core.exporter import compile_latex
+
 
 def ask(prompt: str) -> str:
     return input(prompt).strip()

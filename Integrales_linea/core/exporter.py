@@ -1,8 +1,7 @@
 from datetime import datetime
-#from fileinput import filename
-
 import sympy as sp
 import subprocess
+import platform
 import os
 
 def get_output_path(filename):
@@ -10,6 +9,7 @@ def get_output_path(filename):
     folder = "outputs"
     if not os.path.exists(folder):
         os.makedirs(folder)
+        print("[Sistema] Carpeta 'outputs' creada automáticamente.")
     return os.path.join(folder, filename)
 
 def export_to_latex(res_data: dict, calc_type: str = "integral", method: str = "residues"):
@@ -84,8 +84,15 @@ def compile_latex(tex_path: str):
         )
         if result.returncode == 0:
             print(f"[LaTeX] PDF generado exitosamente en: {output_dir}")
-
             clean_auxiliary_file(tex_path)
+
+            pdf_path = tex_path.replace(".tex", ".pdf")
+
+            if platform.system() == "Darwin":
+                os.system(f"open '{pdf_path}'")
+            # Por si alguien lo usa en Windows
+            elif platform.system() == "Windows":
+                os.startfile(pdf_path)
 
         else:
             print("[Error LaTeX] La compilación falló  Revisa el archivo .log")
