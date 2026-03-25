@@ -4,37 +4,41 @@ Este proyecto está completamente desarrollado con Python en PyCharm. Es una cal
 ## Requisitos previos
 Antes de empezar, debe tener:
   - **Pyhon 3.9 o superior** instalado
-  - **Una distribución de LaTeX**(como MikTex en Windows o MacTex en macOS) si desea generar los reportes en PDF. El programa compila el archivo LaTeX con pdflatex.
+  - **Una distribución de LaTeX**(como MikTex en Windows o MacTex en macOS) si desea generar los reportes en PDF. El programa compila el archivo LaTeX con pdflatex de forma predetermianada.
 
-## Guía de instalción(Lo que deben hacer)
+## Guía de instalción
 ### Ejecución del proyecto
 ##### 1. Clonar el repositorio:
-        ```
-        git clone https://github.com/tu-usuario/tu-repositorio.git
-cd tu-repositorio
-        ```
+        
+        git clone https://github.com/tu-usuario/tu-repositorio.git cd tu-repositorio
+        
 ##### 2. Crear un entorno virtual (Recomendado):
-        ````
+Inicia con:
+
         python -m venv venv
-        # En macOS/Linux:
+        
+  **En macOS/Linux:**
+  
         source venv/bin/activate
-        # En Windows:
+        
+  **En Windows:**
+  
         venv\Scripts\activate
-        ```
+        
 ##### 3. Instalar dependencias:
-        Tu proyecto necesita librerías específicas.
-        - sympy
-        - mpmath
-        - matplotlib (si usas gráficas)
-      El script para instalarlos automaticamente se encuentra en el archivo requirements.txt
-      
-        Para instalar ejecuta:
-        ```
-        pip install -r requirements.txt
-        ´´´
+Tu proyecto necesita librerías específicas.
+  - sympy
+  - mpmath
+  - matplotlib (si usas gráficas)
+El script para instalarlos automaticamente se encuentra en el archivo requirements.txt
+
+    Para instalar ejecuta:
+        
+    pip install -r requirements.txt
+        
 ##### 4. Correr el programa:
-        ```
+        
         python main.py
-        ```
+        
 ###### Nota para usuarios de MAC
-        Si el programa no encuentra pdflatex, asegúrate de que el binario esté en tu PATH o configura la ruta manual en core/exporter.py.
+Si el programa no encuentra pdflatex, asegúrate de que el binario esté en tu PATH o configura la ruta manual en core/exporter.py.
