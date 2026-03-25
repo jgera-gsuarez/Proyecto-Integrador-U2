@@ -1,7 +1,7 @@
 from __future__ import annotations
 import sympy as sp
 
-from Integrales_linea.core.types import FourierResult
+from .types import FourierResult
 
 from .signals import SignalSpec, build_signal_callable
 from .series import build_series_callable, build_series_expr
