@@ -6,7 +6,7 @@ Antes de empezar, debe tener:
   - **Pyhon 3.9 o superior** instalado
   - **Una distribución de LaTeX**(como MikTex en Windows o MacTex en macOS) si desea generar los reportes en PDF. El programa compila el archivo LaTeX con pdflatex de forma predetermianada.
 
-## Guía de instalción
+## Guía de instalAción
 ### Ejecución del proyecto
 ##### 1. Clonar el repositorio:
         
