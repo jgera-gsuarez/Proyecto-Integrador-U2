@@ -43,6 +43,9 @@ def compute_fourier(signal: SignalSpec, n_harmonics: int) -> FourierResult:
                 "Límites": f"[{a}, {b}]",
                 "Armónicos": n_harmonics
             },
+            "a0": a0,
+            "an": an,
+            "bn": bn,
             "S_expr": build_series_expr(x, a0, an, bn, a, _T_used)
         }
 

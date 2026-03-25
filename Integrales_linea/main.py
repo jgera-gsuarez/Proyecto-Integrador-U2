@@ -1,5 +1,5 @@
+#from fileinput import filename
 import sympy as sp
-
 from Integrales_linea import(
     format_report,
     parse_expr_math, parse_number_math,
@@ -9,6 +9,7 @@ from Integrales_linea import(
     integrate_parametric, param_arc, param_segment,
     plot_complex_contour
 )
+from Integrales_linea.core.exporter import compile_latex
 
 def ask(prompt: str) -> str:
     return input(prompt).strip()
@@ -42,6 +43,8 @@ def integrals_menu():
     print("  4) Arco de círculo (Paramétrico)")
     opt = ask("Opción:")
 
+    path_al_tex = None
+
     if opt in["1", "2"]:
         orient_in = ask("Orientación (A=antihorario, H=horario) [A]: ").upper() or "A"
         orientation = 1 if orient_in == "A" else -1
@@ -67,10 +70,15 @@ def integrals_menu():
         if ver_grafica == 's':
             plot_complex_contour(result.report)
 
-        # Preguntar si desea exportar el reporte en PDF
-        ver_reporte_pdf = ask("\n¿Deseas exportar el reporte en PDF? (s/n): ").lower()
+        # Preguntar si desea exportar el reporte en LaTeX
+        ver_reporte_latex = ask("\n¿Deseas exportar el reporte en LaTeX? (s/n): ").lower()
+        if ver_reporte_latex == 's':
+            path_al_tex = export_to_latex(result.report, calc_type="integral")
+
+        #Preguntar si desea exportar el reporte en PDF
+        ver_reporte_pdf = ask("\n¿Deseas exportar el reporte en PDF?")
         if ver_reporte_pdf == 's':
-            export_to_latex(result.report, calc_type="integral")
+            compile_latex(path_al_tex)
 
     #Lógica paramétrica (Opciones 3 y 4)
     elif opt == "3":
@@ -88,10 +96,15 @@ def integrals_menu():
         if ver_grafica == 's':
             plot_complex_contour(result.report)
 
+        # Preguntar si desea exportar el reporte en LaTeX
+        ver_reporte_latex = ask("\n¿Deseas exportar el reporte en LaTeX? (s/n): ").lower()
+        if ver_reporte_latex == 's':
+            path_al_tex = export_to_latex(result.report, calc_type="integral")
+
         # Preguntar si desea exportar el reporte en PDF
-        ver_reporte_pdf = ask("\n¿Deseas exportar el reporte en PDF? (s/n): ").lower()
+        ver_reporte_pdf = ask("\n¿Deseas exportar el reporte en PDF?")
         if ver_reporte_pdf == 's':
-            export_to_latex(result.report, calc_type="integral")
+            compile_latex(path_al_tex)
 
     elif opt == "4":
 
@@ -116,9 +129,14 @@ def integrals_menu():
             plot_complex_contour(result.report)
 
         # Preguntar si desea exportar el reporte en PDF
-        ver_reporte_pdf = ask("\n¿Deseas exportar el reporte en PDF? (s/n): ").lower()
+        ver_reporte_latex = ask("\n¿Deseas exportar el reporte en LaTex? (s/n): ").lower()
+        if ver_reporte_latex == 's':
+            path_al_tex = export_to_latex(result.report, calc_type="integral")
+
+        #Preguntar si desea exportar el reporte en PDF
+        ver_reporte_pdf = ask("\n¿Deseas exportar el reporte en PDF?")
         if ver_reporte_pdf == 's':
-            export_to_latex(result.report, calc_type="integral")
+            compile_latex(path_al_tex)
 
     else:
         print("Opción inválida.")
@@ -132,6 +150,8 @@ from Integrales_linea import(
 def fourier_menu():
     print("\n=== Análisis de Series de Fourier ===")
     x = sp.Symbol('x', real=True)
+
+    path_al_tex = None
 
     try:
         f_str = ask("Ingresa f(x): ")
@@ -160,10 +180,15 @@ def fourier_menu():
             if ver_grafica == 's':
                 plot_fourier_result(result)
 
-            # 3. Preguntar si desea exportar el reporte en PDF
-            ver_reporte_pdf = ask("\n¿Deseas exportar el reporte en PDF? (s/n): ").lower()
+            # 3. Preguntar si desea exportar el reporte en LaTeX
+            ver_reporte_latex = ask("\n¿Deseas exportar el reporte en LaTeX? (s/n): ").lower()
+            if ver_reporte_latex == 's':
+                path_al_tex = export_to_latex(result.report, calc_type="fourier")
+
+            # Preguntar si desea exportar el reporte en PDF
+            ver_reporte_pdf = ask("\n¿Deseas exportar el reporte en PDF?")
             if ver_reporte_pdf == 's':
-                export_to_latex(result.report, calc_type="fourier")
+                compile_latex(path_al_tex)
 
         else:
             print(f"DEBUG: El motor devolvió error: {result.message}")
