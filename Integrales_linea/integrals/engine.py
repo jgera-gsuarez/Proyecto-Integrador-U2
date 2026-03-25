@@ -43,7 +43,7 @@ def integrate_by_residues(f_expr, contour, z_symbol=None) -> IntegralResult:
     rep = {
         "status": "ok",
         "method": "residues",
-        "function": f_expr,
+        "f(x)": f_expr,
         "candidates": cand,
         "inside": inside,
         "outside": outside,
@@ -97,7 +97,7 @@ def integrate_parametric(f_expr, z_symbol, z_t, t_symbol, t_start, t_end) -> Int
     rep = {
         "status": "ok",
         "method": "parametric",
-        "function": f_expr,
+        "f(x)": f_expr,
         "integral": resultado,
         "parametrization": z_t,
         "limits": (t_start, t_end),

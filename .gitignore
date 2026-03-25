@@ -1,2 +1,6 @@
 .idea/
-Integrales_linea/outputs/
+
+# Ignorar todas las carpetas pycache
+__pycache__/
+*.py[cod]
+*$py.class
