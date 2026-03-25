@@ -44,8 +44,15 @@ El script para instalarlos automaticamente se encuentra en el archivo requiremen
 *Si el programa no encuentra pdflatex, asegúrate de que el binario esté en tu PATH o configura la ruta manual en core/exporter.py.
 
 ## Instalación rápida
-- En Mac ejecuta:
+- En Mac:
+Abre una terminal, entra a la carpeta del proyecto usando el comando cd y luego ejecuta:
   
         sh setup_mac.sh
+  
+Si al intentar ejecutarlo te dice Permission denied, debes darle "permiso de ejecución" una sola vez con este comando:
+
+      chmod +x setup_mac.sh
+
+Después de eso, ya podrás ejecutarlo siempre que quieras.
   
 - En Windows haz doble clic en: **setup_windows.bat**
