@@ -10,7 +10,7 @@ Antes de empezar, debe tener:
 ### Ejecución del proyecto
 ##### 1. Clonar el repositorio:
         
-        git clone https://github.com/tu-usuario/tu-repositorio.git cd tu-repositorio
+        git clone [https://github.com/tu-usuario/tu-repositorio.git cd tu-repositorio](https://github.com/jgera-gsuarez/Proyecto-Integrador-U2)
         
 ##### 2. Crear un entorno virtual (Recomendado):
 Inicia con:
