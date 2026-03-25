@@ -42,3 +42,4 @@ El script para instalarlos automaticamente se encuentra en el archivo requiremen
         
 ###### Nota para usuarios de MAC
 Si el programa no encuentra pdflatex, asegúrate de que el binario esté en tu PATH o configura la ruta manual en core/exporter.py.
+TE AMOOOO, ERES INCREIBLEEEE  AQUI ESTARE SIEMPRE CONTIGO <3
