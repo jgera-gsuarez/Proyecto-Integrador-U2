@@ -1,5 +1,5 @@
-# Proyecto Integrador Unidad II
-Este proyecto está completamente desarrollado con Python en PyCharm. Es una calculadora de integrales de línea y series de fourier, además de graficar las funciones. El reporte de los cálculos se puede exportar en un archivo .tex y se puede exportar ese archivo .tex para guardar el archivo PDF.
+# Proyecto Integrador Unidad III
+En este proyecto se le agregó la funcionalidad de realizar Transformaciones de Fuorier en el mismo programa que la unidad I y II 
 
 ## Requisitos previos
 Antes de empezar, debe tener:
