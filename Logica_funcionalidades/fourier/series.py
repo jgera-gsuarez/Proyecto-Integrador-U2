@@ -1,4 +1,4 @@
-# Integrales_linea/fourier/series.py
+# Logica_funcionalidades/fourier/series.py
 from __future__ import annotations
 from typing import Callable, List
 import sympy as sp

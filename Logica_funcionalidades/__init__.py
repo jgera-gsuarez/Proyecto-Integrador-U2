@@ -17,6 +17,9 @@ from .fourier.fourier_plotter import plot_fourier_result
 from .fourier.signals import SignalSpec
 from .fourier.types import FourierResult
 
+#Transformada de Fourier
+from .fourier_transform.engine import TransformEngine
+from .fourier_transform.fourier_transform_plotter import plot_transform_result
 __all__ = [
     'parse_expr_math', 'parse_number_math',
     'export_to_latex',
@@ -29,5 +32,6 @@ __all__ = [
     'format_fourier_report',
     'plot_fourier_result',
     'SignalSpec',
-    'FourierResult'
+    'FourierResult',
+    'TransformEngine', 'plot_transform_result'
 ]

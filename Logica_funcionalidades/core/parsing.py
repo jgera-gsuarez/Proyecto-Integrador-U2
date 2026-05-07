@@ -47,6 +47,13 @@ def parse_expr_math(expr_str: str, local_dict=None):
     #Para Fourier
     local_dict.setdefault("x", sp.Symbol('x', real=True))
     local_dict.setdefault("n", sp.Symbol('n', integer=True, positive=True))
+    local_dict.setdefault("t", sp.Symbol('t', real=True))  # Fundamental para la Transformada
+    local_dict.setdefault("f", sp.Symbol('f', real=True))  # Para el dominio de la frecuencia
+
+    # Funciones de Pulso y Paso
+    local_dict.setdefault("Heaviside", sp.Heaviside)
+    local_dict.setdefault("H", sp.Heaviside)  # Alias corto muy útil en ingeniería
+    local_dict.setdefault("sinc", sp.sinc)  # Por si quieres meter un sinc directamente
 
     return parse_expr(expr_str, transformations=_TRANSFORMS, local_dict=local_dict)
 

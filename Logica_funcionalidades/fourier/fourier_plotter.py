@@ -13,9 +13,11 @@ def plot_fourier_result(result: FourierResult, periods: int=2, show: bool=True):
     fig, ax = setup_standard_figure(title, "x", "f(x)")
 
     # 2. Preparar datos
-    a_val, b_val, t_val = float(result.a), float(result.b), float(result.T)
-    x_min = a_val - (periods - 1) * t_val / 2
-    x_max = b_val + (periods - 1) * t_val / 2
+    a_val = float(result.a)
+    b_dsval = float(result.b)
+    t_val = float(result.T)
+    x_min = a_val
+    x_max = a_val + (periods*t_val)
     x_pts = np.linspace(x_min, x_max, 1000)
 
     y_orig = np.array([result.f_callable(val) for val in x_pts])

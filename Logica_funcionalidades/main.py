@@ -1,6 +1,5 @@
-import os
 import sympy as sp
-from Integrales_linea import(
+from Logica_funcionalidades import(
     format_report,
     parse_expr_math, parse_number_math,
     export_to_latex,
@@ -9,7 +8,7 @@ from Integrales_linea import(
     integrate_parametric, param_arc, param_segment,
     plot_complex_contour
 )
-from Integrales_linea.core.exporter import compile_latex
+from Logica_funcionalidades.core.exporter import compile_latex
 
 
 def ask(prompt: str) -> str:
@@ -19,12 +18,14 @@ def main():
     print("=== Elije que quieres hacer? ===")
     print("  1) Integrales")
     print("  2) Series de Fourier")
-    option = ask("Opción (1/2):")
+    print(" 3) Transformada de Fourier")
+    option = ask("Opción (1/2/3):")
     if option == "1":
         integrals_menu()
-
-    else:
+    elif option == "2":
         fourier_menu()
+    else:
+        transformada_menu()
 
 def integrals_menu():
     print("============= Integrales de Línea =============")
@@ -142,7 +143,7 @@ def integrals_menu():
     else:
         print("Opción inválida.")
 
-from Integrales_linea import(
+from Logica_funcionalidades import(
     compute_fourier,
     plot_fourier_result, # Importar el nuevo plotter
     SignalSpec
@@ -173,7 +174,7 @@ def fourier_menu():
 
         if result.status == "ok":
             # Usamos la función de reporte que escribimos en engine.py
-            from Integrales_linea import format_fourier_report
+            from Logica_funcionalidades import format_fourier_report
             print(format_fourier_report(result))
 
             # 2. Preguntar si desea graficar
@@ -197,7 +198,37 @@ def fourier_menu():
     except Exception as e:
         print(f"DEBUG: Error en menu_fourier: {e}")
 
+from Logica_funcionalidades import(
+    TransformEngine,
+    plot_transform_result
+)
 
+def transformada_menu():
+    print("\n=== Transformada de Fourier ===")
+    print("Nota: Usa 't' como variable de tiempo (ej. exp(-t**2), Heaviside(t+0.5)-Heaviside(t-0.5))")
+
+    try:
+        f_str = input("Ingresa la función f(t): ")
+        f_expr = parse_expr_math(f_str)
+
+        # 1. Cálculo simbólico
+        engine_tf = TransformEngine()
+        transformada = engine_tf.compute_transform(f_expr)
+
+        # 2. Mostrar resultado simbólico en consola
+        print("\n--- Resultado Simbólico ---")
+        # sp.pretty para que se vea con formato matemático en tu Mac
+        sp.pprint(transformada)
+
+        ver_grafica = ask("\n¿Deseas ver la gráfica? (s/n): ").lower()
+        if ver_grafica == 's':
+            print("\nGenerando espectros de Magnitud y Fase...")
+            plot_transform_result(transformada, f_range=(-5, 5))
+
+        print("\n[✓] Proceso completado. Gráfica guardada en la carpeta de outputs.")
+
+    except Exception as e:
+        print(f"\n[!] Ocurrió un error inesperado: {e}")
 
 
 if __name__ == "__main__":
